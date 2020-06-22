@@ -259,9 +259,9 @@ app.get("/name", checkAuth, async (req, res, next) => {
     message: user.name,
   });
 });
-app.use(express.static("./frontend/build"));
+app.use(express.static(path.join(__dirname, "frontend", "build")));
 app.get("*", (req, res) => {
-  res.sendFile("./frontend/build/index.html");
+  res.sendFile(path.join(__dirname, "frontend", "build"));
 });
 
 app.listen(process.env.PORT || 5000);
