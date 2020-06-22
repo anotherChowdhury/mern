@@ -189,7 +189,7 @@ app.post("/forget", async (req, res, next) => {
       html: `
             <h2 style="padding:0 0 20px 0;"> Request for password reset has been sent from this emai. If you didn't sent this request, just ignore this <h2>
             <h2 style="padding:0 0 20px 0;">Please Click the link below to reset your password</h2>
-            <a href="http://localhost:3000/resetpassword/${forgetpasstoken}">Reset Password</a>
+            <a href="https://ajairaaapp.herokuapp.com/resetpassword/${forgetpasstoken}">Reset Password</a>
             <h2 style="padding:20 0 20px 0; color:red;">This will expire in 1 hour</h2>
             `,
     });
