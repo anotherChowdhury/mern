@@ -75,10 +75,10 @@ export default class Signup extends Component {
         // }
       )
       .then((result) => {
-        this.setState({ redirect: true });
+        this.setState({ redirect: true, loading: false });
       })
       .catch((err) => {
-        this.setState({ error: true });
+        this.setState({ error: true, loading: false });
       });
   };
 
