@@ -52,7 +52,7 @@ export default class Signup extends Component {
       name: "",
       email: "",
       password: "",
-      error: false,
+      error: "",
       loading: false,
     };
   }
@@ -78,7 +78,7 @@ export default class Signup extends Component {
         this.setState({ redirect: true, loading: false });
       })
       .catch((err) => {
-        this.setState({ error: true, loading: false });
+        this.setState({ error: err.response.data.message, loading: false });
       });
   };
 
