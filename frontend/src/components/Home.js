@@ -11,7 +11,7 @@ class Home extends Component {
   }
 
   getData = async () => {
-    let response = await axios.get("http://localhost:5000/name", {
+    let response = await axios.get("/name", {
       headers: {
         Authorization: localStorage.getItem("token"),
       },

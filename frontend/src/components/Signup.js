@@ -66,7 +66,7 @@ export default class Signup extends Component {
 
     axios
       .post(
-        "http://localhost:5000/signup",
+        "/signup",
         { name, email, password }
         // {
         //   headers: {
