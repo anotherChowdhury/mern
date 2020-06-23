@@ -66,7 +66,7 @@ export default class Signup extends Component {
 
     axios
       .post(
-        "/signup",
+        "/user/signup",
         { name, email, password }
         // {
         //   headers: {

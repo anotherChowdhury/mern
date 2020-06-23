@@ -1,2 +1,3 @@
 const path = require("path");
-console.log(path.join(__dirname, "frontend", "build"));
+require("dotenv").config();
+console.log(process.env.DATABASE_URI);

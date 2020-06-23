@@ -11,12 +11,19 @@ class Home extends Component {
   }
 
   getData = async () => {
-    let response = await axios.get("/name", {
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    });
+    let response = await axios
+      .get("/user/name", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .catch((err) => {
+        console.log(err);
+        localStorage.removeItem("token");
+        this.setState({ redirect: true });
+      });
 
+    console.log(response);
     let name = response.data.message;
     this.setState({ loading: false, name: name });
   };
@@ -39,7 +46,7 @@ class Home extends Component {
     } else {
       return (
         <>
-          <h1>Your name is {this.state.name}</h1>
+          <h1>Hello {this.state.name}!!!</h1>
           <button onClick={this.handleSubmit}>Logout</button>
         </>
       );

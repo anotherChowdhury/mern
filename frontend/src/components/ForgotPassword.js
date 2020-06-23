@@ -56,7 +56,7 @@ export default class ForgotPassword extends Component {
     this.setState({ loading: true });
     let email = e.target.email.value;
     axios
-      .post("/forget", { email })
+      .post("/user/forget", { email })
       .then((result) => {
         if (result.data.message == "mail sent")
           this.setState({ emailSent: true, loading: false });

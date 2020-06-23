@@ -64,7 +64,7 @@ class ResetPassword extends Component {
 
     axios
       .post(
-        "/updatepassword",
+        "/user/updatepassword",
         { password },
         {
           headers: {
@@ -81,7 +81,7 @@ class ResetPassword extends Component {
   componentDidMount() {
     let token = this.props.match.params.token;
     axios
-      .get(`/resetpassword`, {
+      .get(`/user/resetpassword`, {
         headers: {
           Authorization: token,
         },
