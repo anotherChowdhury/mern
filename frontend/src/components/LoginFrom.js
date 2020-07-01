@@ -64,10 +64,10 @@ export default class LoginFrom extends Component {
     let email = e.target.email.value;
     let password = e.target.password.value;
 
-    console.log({
-      email,
-      password,
-    });
+    // console.log({
+    //   email,
+    //   password,
+    // });
 
     axios
       .post(
@@ -81,7 +81,7 @@ export default class LoginFrom extends Component {
       )
       .then((result) => {
         window.localStorage.setItem("token", result.data.token);
-        console.log(localStorage.getItem("token"));
+        // console.log(localStorage.getItem("token"));
         this.setState({ redirect: true });
       })
       .catch((err) => {

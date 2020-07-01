@@ -6,8 +6,10 @@ import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import PrivateRoute from "./components/PrivateRoute";
-import Home from "./components/Home";
+import { Home } from "./components/Home";
 import ResetPassword from "./components/ResetPassword";
+import FindFriendPage from "./components/FindFriendPage";
+import LoggedinNavbar from "./components/LoggedinNavbar";
 
 const Wrapper = styled.section`
   margin: none;
@@ -20,24 +22,36 @@ const Wrapper = styled.section`
 
 const App = () => (
   <Router>
-    <Navbar />
-    <Wrapper>
-      {" "}
-      <Route exact path="/">
+    <Route exact path="/">
+      <Navbar />
+      <Wrapper>
+        {" "}
         <h1>Hello from Landing</h1>
-      </Route>
-      <Route exact path="/signin">
+      </Wrapper>
+    </Route>
+    <Route exact path="/signin">
+      <Navbar />
+      <Wrapper>
         <LoginFrom />{" "}
-      </Route>
-      <Route exact path="/signup">
+      </Wrapper>
+    </Route>
+    <Route exact path="/signup">
+      <Navbar />
+      <Wrapper>
         <Signup />
-      </Route>
-      <Route exact path="/forgotpassword">
+      </Wrapper>
+    </Route>
+    <Route exact path="/forgotpassword">
+      <Wrapper>
         <ForgotPassword />
-      </Route>
-      <Route exact path="/resetpassword/:token" component={ResetPassword} />
-      <PrivateRoute component={Home} path="/home" exact />
-    </Wrapper>
+      </Wrapper>
+    </Route>
+
+    <Route exact path="/resetpassword/:token" component={ResetPassword} />
+
+    <PrivateRoute component={Home} path="/home" exact />
+    <PrivateRoute component={FindFriendPage} path="/findfriends" exact />
+    <PrivateRoute component={LoggedinNavbar} path="/LoggedBar" exact />
   </Router>
 );
 
