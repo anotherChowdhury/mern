@@ -138,7 +138,7 @@ exports.forget = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: "testemailumar@gmail.com",
+      from: process.env.EMAIL,
       to: user.email,
       subject: "Reset Password",
       html: `
